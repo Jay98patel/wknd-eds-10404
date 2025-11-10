@@ -1,0 +1,10 @@
+# Default robots file for WKND EDS
+# NOTE: .page and .live environments always disallow robots by default.
+# This file matters when you map your own production domain.
+
+User-agent: *
+Disallow: /draft/
+Disallow: /admin/
+
+# Uncomment and adjust when you have a real domain mapping:
+# Sitemap: https://www.example.com/sitemap.xml

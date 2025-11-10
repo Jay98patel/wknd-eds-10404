@@ -1,7 +1,23 @@
-.*
-*.md
-karma.config.js
-LICENSE
+# Node & tooling
+node_modules/
+.npm/
+dist/
+build/
+coverage/
+
+# Git / editor / OS files
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# CI / docs / config that should not be directly served
+.github/
+.eslintrc.js
+.stylelintrc.json
+.editorconfig
 package.json
 package-lock.json
-test/*
+README.md
