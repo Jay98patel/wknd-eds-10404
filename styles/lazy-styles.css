@@ -1,1 +1,42 @@
 /* add global styles that can be loaded post LCP here */
+/*
+ * Lazy styles (loaded after LCP)
+ * Add polish: subtle animations, card hover, fine-grain typography tweaks
+ */
+
+:root {
+    --elevate: var(--shadow-md);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+    animation: fadeInUp .36s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Card hover elevate – used by cards block */
+.elevate-on-hover {
+    transition: box-shadow .2s ease, transform .12s ease;
+}
+
+.elevate-on-hover:hover {
+    box-shadow: var(--elevate);
+    transform: translateY(-2px);
+}
+
+/* Fine-tune headings spacing once critical CSS is in */
+h1 {
+    letter-spacing: .1px;
+}
+
+h2,
+h3 {
+    letter-spacing: .15px;
+}

@@ -1,27 +1,103 @@
-.cards > ul {
+/*
+ * Cards block styles
+ * Works with manual cards and auto-cards (paths list) variants
+ */
+
+.cards {
+  --card-gap: 22px;
+}
+
+.cards>ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  gap: var(--card-gap);
+  grid-template-columns: 1fr;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+@media (width >=700px) {
+  .cards>ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+@media (width >=1024px) {
+  .cards>ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Respect Section Metadata "three-up" explicitly */
+.section.three-up .cards>ul {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cards>ul>li {
+  list-style: none;
+}
+
+.cards .cards-card-body,
+.cards .cards-card-image {
+  background: var(--surface-color);
+  border: 1px solid #eef2f7;
+  border-radius: var(--radius-sm);
+  overflow: clip;
+  box-shadow: var(--shadow-sm);
 }
 
 .cards .cards-card-image {
-  line-height: 0;
+  padding: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 16/10;
   object-fit: cover;
+}
+
+.cards .cards-card-body {
+  padding: 16px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.cards .cards-card-body p:first-child,
+.cards .cards-card-body h3:first-child,
+.cards .cards-card-body h2:first-child {
+  margin-top: 0;
+}
+
+.cards .cards-card-body .eyebrow {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: var(--muted-text);
+}
+
+.cards .cards-card-body a.button,
+.cards .cards-card-body a:any-link.button {
+  align-self: start;
+}
+
+.cards .cards-card {
+  display: block;
+  border-radius: var(--radius-sm);
+}
+
+/* Hover elevate */
+.cards>ul>li .cards-card-body,
+.cards>ul>li .cards-card-image {
+  transition: box-shadow .2s ease, transform .12s ease;
+}
+
+.cards>ul>li:hover .cards-card-body,
+.cards>ul>li:hover .cards-card-image {
+  box-shadow: var(--shadow-md);
 }
