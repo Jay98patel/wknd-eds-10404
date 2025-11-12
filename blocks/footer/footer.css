@@ -8,7 +8,7 @@
   padding: 48px 0 32px;
 }
 
-.footer>div {
+.footer > div {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--gutter-x);
@@ -29,7 +29,7 @@
   gap: 24px;
 }
 
-@media (width >=900px) {
+@media (width >= 900px) {
   .footer .footer-top {
     grid-template-columns: 2fr 1fr 1fr;
   }
@@ -52,7 +52,8 @@
 
 .footer .footer-bottom {
   margin-top: 28px;
-  border-top: 1px solid rgba(148, 163, 184, .25);
+  /* modern color notation + % alpha */
+  border-top: 1px solid rgb(148 163 184 / 25%);
   padding-top: 18px;
   display: flex;
   flex-wrap: wrap;

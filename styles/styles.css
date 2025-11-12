@@ -1,50 +1,42 @@
 /*
- * Global Styles (EDS baseline, themed)
- * Full file – drop-in replacement for styles/styles.css
+ * Global Styles (EDS baseline, themed) – LINT CLEAN
  */
 
 :root {
-  /* Colors (adjust to brand) */
-  --background-color: #ffffff;
-  --surface-color: #ffffff;
+  /* Colors */
+  --background-color: #fff;
+  --surface-color: #fff;
   --surface-elevated: #f7f8fb;
   --light-color: #f2f4f7;
   --dark-color: #1f2937;
   --text-color: #0f172a;
   --muted-text: #475569;
-
-  /* Brand (primary/hover and subtle tints) */
+  /* Brand */
   --brand: #3b63fb;
   --brand-600: #3153d4;
   --brand-050: #edf2ff;
-
   /* Links */
   --link-color: var(--brand);
   --link-hover-color: var(--brand-600);
-
   /* Radius / shadows */
   --radius-xs: 6px;
   --radius-sm: 10px;
   --radius-md: 14px;
-  --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.08);
-  --shadow-md: 0 8px 24px rgba(2, 6, 23, 0.12);
-
+  --shadow-sm: 0 2px 8px rgb(16 24 40 / 8%);
+  --shadow-md: 0 8px 24px rgb(2 6 23 / 12%);
   /* Fonts */
-  --body-font-family: roboto, roboto-fallback, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-
+  --body-font-family: roboto, roboto-fallback, system-ui, -apple-system, "Segoe UI", "Arial", sans-serif;
+  --heading-font-family: roboto-condensed, roboto-condensed-fallback, system-ui, -apple-system, "Segoe UI", "Arial", sans-serif;
   /* Type scale (mobile-first) */
   --body-font-size-m: 16px;
   --body-font-size-s: 15px;
   --body-font-size-xs: 14px;
-
   --heading-font-size-xxl: 40px;
   --heading-font-size-xl: 32px;
   --heading-font-size-l: 26px;
   --heading-font-size-m: 22px;
   --heading-font-size-s: 18px;
   --heading-font-size-xs: 16px;
-
   /* Layout */
   --container-max: 1200px;
   --section-y: 48px;
@@ -52,7 +44,7 @@
   --nav-height: 64px;
 }
 
-/* Fallbacks */
+/* Fallbacks (kept) */
 @font-face {
   font-family: roboto-condensed-fallback;
   size-adjust: 88.82%;
@@ -70,14 +62,12 @@
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
     --body-font-size-xs: 15px;
-
     --heading-font-size-xxl: 48px;
     --heading-font-size-xl: 40px;
     --heading-font-size-l: 30px;
     --heading-font-size-m: 24px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
-
     --section-y: 64px;
     --gutter-x: 32px;
   }
@@ -125,6 +115,14 @@ footer .footer {
 header .header[data-block-status="loaded"],
 footer .footer[data-block-status="loaded"] {
   visibility: visible;
+}
+
+/* Ensure form controls inherit font BEFORE button hover rules (no-descending-specificity) */
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 
 /* Typography */
@@ -281,32 +279,11 @@ button.secondary:hover {
   background: var(--brand-050);
 }
 
-/* Forms */
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: var(--radius-xs);
-  border: 1px solid #e2e8f0;
-  background: #fff;
-  color: var(--text-color);
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 20%, transparent);
+/* Images */
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 
 /* Icons */
@@ -330,7 +307,7 @@ select:focus {
   margin: 24px 0;
 }
 
-/* Section style helpers from Section Metadata */
+/* Section helpers from Section Metadata */
 .section.center>div {
   text-align: center;
 }
@@ -345,7 +322,6 @@ select:focus {
   margin-bottom: 1.2em;
 }
 
-/* Make first section feel like a hero area by default */
 main>.section:first-of-type>div {
   padding-top: 8px;
 }
